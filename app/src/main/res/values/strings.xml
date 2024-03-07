@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Typicode</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="dont_have_account">Belum punya akun ? daftar disini</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="role">Role</string>
+    <string name="admin">Admin</string>
+    <string name="user">User</string>
 </resources>
