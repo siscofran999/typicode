@@ -49,10 +49,10 @@ class RegisterActivity : BaseVBActivity<ActivityRegisterBinding>() {
             }
             btnRegister.setOnClickListener {
                 val user = User(
-                    edtUsername.text.toString(),
-                    edtEmail.text.toString(),
-                    edtPass.text.toString(),
-                    binding.menuAutoComplete.text.toString()
+                    username = edtUsername.text.toString(),
+                    email = edtEmail.text.toString(),
+                    password = edtPass.text.toString(),
+                    role = binding.menuAutoComplete.text.toString()
                 )
                 registerViewModel.insertUser(user)
                 Toast.makeText(this@RegisterActivity, getString(R.string.success_register), Toast.LENGTH_SHORT)

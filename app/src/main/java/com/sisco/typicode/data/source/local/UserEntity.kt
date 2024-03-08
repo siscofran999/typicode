@@ -6,12 +6,14 @@ import com.sisco.typicode.domain.model.User
 
 @Entity(tableName = "user_table")
 data class UserEntity(
-    @PrimaryKey val username: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val username: String?,
     val email: String?,
     val password: String?,
     val role: String?
 ) {
     fun toDomain(): User = User(
+        id = id,
         username = username,
         email = email,
         password = password,

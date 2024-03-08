@@ -40,7 +40,7 @@ class LoginActivity : BaseVBActivity<ActivityLoginBinding>() {
                     }
                     is DataState.Success -> {
                         if (state.data.role?.lowercase() == getString(R.string.admin).lowercase()) {
-                            startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
+                            startActivity(AdminActivity.newInstance(this@LoginActivity, state.data))
                             finish()
                         }else {
                             startActivity(Intent(this@LoginActivity, MainActivity::class.java))

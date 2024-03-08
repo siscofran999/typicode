@@ -19,8 +19,8 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE email = :email AND password = :password")
     fun getUserFromEmail(email: String, password: String): UserEntity
 
-    @Query("SELECT * FROM user_table WHERE email = :email AND password = :password")
-    fun getUser(email: String, password: String): UserEntity
+    @Query("SELECT * FROM user_table WHERE email != :email")
+    fun getUserForAdmin(email: String): Flow<List<UserEntity>>
 
     @Delete
     suspend fun deleteUser(userEntity: UserEntity)

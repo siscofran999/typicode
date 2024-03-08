@@ -17,4 +17,7 @@ class AppRepositoryImpl @Inject constructor(
 
     override fun getUserFromEmail(login: Login): Flow<DataState<User>> =
         localDataSource.getUserFromEmail(login)
+
+    override fun getUserForAdmin(email: String): Flow<List<User>> =
+        localDataSource.getUserForAdmin(email)
 }

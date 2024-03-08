@@ -11,4 +11,8 @@
     <string name="user">User</string>
     <string name="success_register">Berhasil Register</string>
     <string name="failed_login">Gagal Login</string>
+    <string name="hello_admin">Halo %s,</string>
+    <string name="data_username">username: %s</string>
+    <string name="data_email">email: %s</string>
+    <string name="data_role">role: %s</string>
 </resources>
