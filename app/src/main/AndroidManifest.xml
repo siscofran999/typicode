@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Typicode"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".presentation.admin.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.login.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Typicode">
             <intent-filter>

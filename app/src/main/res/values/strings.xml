@@ -9,4 +9,6 @@
     <string name="role">Role</string>
     <string name="admin">Admin</string>
     <string name="user">User</string>
+    <string name="success_register">Berhasil Register</string>
+    <string name="failed_login">Gagal Login</string>
 </resources>
