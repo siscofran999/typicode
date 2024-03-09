@@ -15,4 +15,7 @@
     <string name="data_username">username: %s</string>
     <string name="data_email">email: %s</string>
     <string name="data_role">role: %s</string>
+    <string name="detail">Detail</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 </resources>

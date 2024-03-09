@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Typicode"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.admin.detail.AdminDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.admin.AdminActivity"
             android:exported="false" />
         <activity

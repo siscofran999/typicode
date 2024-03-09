@@ -3,7 +3,6 @@ package com.sisco.typicode.presentation.admin
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sisco.typicode.R
 import com.sisco.typicode.databinding.ActivityAdminBinding
 import com.sisco.typicode.domain.model.User
+import com.sisco.typicode.presentation.admin.detail.AdminDetailActivity
 import com.sisco.typicode.presentation.base.BaseVBActivity
 import com.sisco.typicode.utils.parcelable
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,7 +47,7 @@ class AdminActivity : BaseVBActivity<ActivityAdminBinding>() {
 
     private fun initListener() {
         adminAdapter.setOnItemClickCallback { user ->
-            Toast.makeText(this, "${user.username}", Toast.LENGTH_SHORT).show()
+            startActivity(AdminDetailActivity.newInstance(this, user))
         }
     }
 
