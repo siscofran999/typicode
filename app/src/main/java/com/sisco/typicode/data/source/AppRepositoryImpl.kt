@@ -24,4 +24,8 @@ class AppRepositoryImpl @Inject constructor(
     override suspend fun deleteUser(user: User) {
         localDataSource.deleteUser(user.toEntity())
     }
+
+    override suspend fun updateUser(user: User) {
+        localDataSource.updateUser(user.toEntity())
+    }
 }

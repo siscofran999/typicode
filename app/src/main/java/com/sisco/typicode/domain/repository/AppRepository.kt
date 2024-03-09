@@ -10,4 +10,5 @@ interface AppRepository {
     fun getUserFromEmail(login: Login): Flow<DataState<User>>
     fun getUserForAdmin(email: String): Flow<List<User>>
     suspend fun deleteUser(user: User)
+    suspend fun updateUser(user: User)
 }

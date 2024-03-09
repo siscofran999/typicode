@@ -25,4 +25,8 @@ class AdminViewModel @Inject constructor(private val appRepositoryImpl: AppRepos
     fun deleteUser(user: User) {
         viewModelScope.launch { appRepositoryImpl.deleteUser(user) }
     }
+
+    fun updateUser(user: User) {
+        viewModelScope.launch { appRepositoryImpl.updateUser(user) }
+    }
 }

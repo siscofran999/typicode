@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sisco.typicode.R
 import com.sisco.typicode.databinding.ActivityAdminDetailBinding
 import com.sisco.typicode.domain.model.User
@@ -15,7 +14,6 @@ import com.sisco.typicode.presentation.base.BaseVBActivity
 import com.sisco.typicode.presentation.bottomsheet.BottomSheetVerification
 import com.sisco.typicode.utils.parcelable
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AdminDetailActivity : BaseVBActivity<ActivityAdminDetailBinding>() {
@@ -55,6 +53,18 @@ class AdminDetailActivity : BaseVBActivity<ActivityAdminDetailBinding>() {
         binding.apply {
             btnDelete.setOnClickListener {
                 bsVerification?.build(supportFragmentManager)
+            }
+            btnEdit.setOnClickListener {
+                val data = User(
+                    dataUser?.id?:0,
+                    edtUsername.text.toString(),
+                    edtEmail.text.toString(),
+                    dataUser?.password?:"",
+                    menuAutoComplete.text.toString()
+                )
+                viewModel.updateUser(data)
+                Toast.makeText(this@AdminDetailActivity, getString(R.string.success_update), Toast.LENGTH_SHORT).show()
+                onBackPressCallback()
             }
         }
     }

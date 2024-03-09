@@ -22,4 +22,5 @@
     <string name="verifikasi">Verifikasi</string>
     <string name="wrong_password">Password Salah</string>
     <string name="success_delete">Berhasil Delete</string>
+    <string name="success_update">Berhasil Update</string>
 </resources>
