@@ -22,6 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         tools:listitem="@layout/list_user"
-        android:layout_below="@id/tvUsername"/>
+        android:layout_below="@id/tvUsername" />
 
 </RelativeLayout>

@@ -50,7 +50,7 @@ class AdminAdapter @Inject constructor() :
     companion object {
         val DIFF_UTIL = object : DiffUtil.ItemCallback<User>() {
             override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem.username == newItem.username
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {

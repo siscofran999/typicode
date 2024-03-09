@@ -41,11 +41,10 @@ class LoginActivity : BaseVBActivity<ActivityLoginBinding>() {
                     is DataState.Success -> {
                         if (state.data.role?.lowercase() == getString(R.string.admin).lowercase()) {
                             startActivity(AdminActivity.newInstance(this@LoginActivity, state.data))
-                            finish()
                         }else {
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                            finish()
+                            startActivity(MainActivity.newInstance(this@LoginActivity, state.data))
                         }
+                        onBackPressCallback()
                     }
                 }
             }
