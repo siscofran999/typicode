@@ -18,4 +18,8 @@
     <string name="detail">Detail</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
+    <string name="label_desc_verification">Untuk menghapus perlu memasukan password</string>
+    <string name="verifikasi">Verifikasi</string>
+    <string name="wrong_password">Password Salah</string>
+    <string name="success_delete">Berhasil Delete</string>
 </resources>

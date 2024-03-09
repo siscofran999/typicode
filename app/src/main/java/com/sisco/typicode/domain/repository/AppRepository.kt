@@ -9,4 +9,5 @@ interface AppRepository {
     suspend fun insertUser(user: User)
     fun getUserFromEmail(login: Login): Flow<DataState<User>>
     fun getUserForAdmin(email: String): Flow<List<User>>
+    suspend fun deleteUser(user: User)
 }

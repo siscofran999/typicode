@@ -33,4 +33,8 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
         userDao.getUserForAdmin(email).map { list ->
             list.map { it.toDomain() }
         }
+
+    suspend fun deleteUser(userEntity: UserEntity) {
+        userDao.deleteUser(userEntity)
+    }
 }

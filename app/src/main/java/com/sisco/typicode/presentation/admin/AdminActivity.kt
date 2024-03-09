@@ -29,8 +29,8 @@ class AdminActivity : BaseVBActivity<ActivityAdminBinding>() {
         ActivityAdminBinding.inflate(layoutInflater)
 
     override fun init(savedInstanceState: Bundle?) {
-        initListener()
         intent.parcelable<User>(EXTRA_DATA_ADMIN)?.let { data ->
+            initListener(data)
             binding.tvUsername.text = getString(R.string.hello_admin, data.username)
             binding.rv.apply {
                 layoutManager = LinearLayoutManager(this@AdminActivity)
@@ -45,9 +45,9 @@ class AdminActivity : BaseVBActivity<ActivityAdminBinding>() {
         }
     }
 
-    private fun initListener() {
+    private fun initListener(dataAdmin: User) {
         adminAdapter.setOnItemClickCallback { user ->
-            startActivity(AdminDetailActivity.newInstance(this, user))
+            startActivity(AdminDetailActivity.newInstance(this, user, dataAdmin))
         }
     }
 

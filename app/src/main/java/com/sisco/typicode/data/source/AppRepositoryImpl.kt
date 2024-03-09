@@ -20,4 +20,8 @@ class AppRepositoryImpl @Inject constructor(
 
     override fun getUserForAdmin(email: String): Flow<List<User>> =
         localDataSource.getUserForAdmin(email)
+
+    override suspend fun deleteUser(user: User) {
+        localDataSource.deleteUser(user.toEntity())
+    }
 }

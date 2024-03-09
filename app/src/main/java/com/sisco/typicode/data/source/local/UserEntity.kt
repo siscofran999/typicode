@@ -6,7 +6,7 @@ import com.sisco.typicode.domain.model.User
 
 @Entity(tableName = "user_table")
 data class UserEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val username: String?,
     val email: String?,
     val password: String?,

@@ -13,6 +13,7 @@ data class User(
     val role: String?
 ): Parcelable {
     fun toEntity(): UserEntity = UserEntity(
+        id = id,
         username = username,
         email = email,
         password = password,
