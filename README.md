@@ -1,2 +1,4 @@
 # typicode
-data from typicode.com
+
+typicode is a GitHub repository that uses the API "https://jsonplaceholder.typicode.com/".
+The features it has: register, login, admin role page, admin detail, delete, update, user role page.
