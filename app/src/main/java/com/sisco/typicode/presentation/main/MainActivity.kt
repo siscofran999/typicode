@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -18,7 +19,9 @@ import com.sisco.typicode.presentation.login.LoginActivity
 import com.sisco.typicode.utils.parcelable
 import com.sisco.typicode.utils.showLoading
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -50,15 +53,17 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
 
     private fun requestPhotos() {
         lifecycleScope.launch {
-            viewModel.getPhotos2.collect {
+            viewModel.getPhotos.collect {
                 mainPagingAdapter.addLoadStateListener { loadState ->
                     when {
                         loadState.prepend is LoadState.Error -> {
                             loadState.prepend as LoadState.Error
                         }
+
                         loadState.append is LoadState.Error -> {
                             loadState.append as LoadState.Error
                         }
+
                         loadState.refresh is LoadState.Error -> {
                             loadState.refresh as LoadState.Error
                         }
@@ -73,6 +78,13 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
                     Log.i("TAG", "requestPhotos: source -> ${it.source}")
                     binding.progressBar.showLoading(it.source.refresh is LoadState.Loading)
                     binding.bottomProgress.showLoading(it.source.append is LoadState.Loading)
+                    if (it.source.append is LoadState.Error || it.source.refresh is LoadState.Error) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            getString(R.string.check_connection),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }

@@ -11,6 +11,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val appRepositoryImpl: AppRepositoryImpl) :
     ViewModel() {
 
-    val getPhotos2 = appRepositoryImpl.getPhotos().flow.cachedIn(viewModelScope)
+    val getPhotos = appRepositoryImpl.getPhotos().flow.cachedIn(viewModelScope)
 
 }
