@@ -1,12 +1,13 @@
 package com.sisco.typicode.data.source
 
-import com.sisco.typicode.utils.DataState
+import androidx.paging.Pager
 import com.sisco.typicode.data.source.local.LocalDataSource
 import com.sisco.typicode.data.source.remote.RemoteDataSource
 import com.sisco.typicode.domain.model.Login
 import com.sisco.typicode.domain.model.Photo
 import com.sisco.typicode.domain.model.User
 import com.sisco.typicode.domain.repository.AppRepository
+import com.sisco.typicode.utils.DataState
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -32,6 +33,6 @@ class AppRepositoryImpl @Inject constructor(
         localDataSource.updateUser(user.toEntity())
     }
 
-    override fun getPhotos(): Flow<DataState<List<Photo>>> =
+    override fun getPhotos(): Pager<Int, Photo> =
         remoteDataSource.getPhotos()
 }

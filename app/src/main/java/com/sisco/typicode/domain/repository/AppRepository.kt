@@ -1,5 +1,6 @@
 package com.sisco.typicode.domain.repository
 
+import androidx.paging.Pager
 import com.sisco.typicode.utils.DataState
 import com.sisco.typicode.domain.model.Login
 import com.sisco.typicode.domain.model.Photo
@@ -12,5 +13,5 @@ interface AppRepository {
     fun getUserForAdmin(email: String): Flow<List<User>>
     suspend fun deleteUser(user: User)
     suspend fun updateUser(user: User)
-    fun getPhotos(): Flow<DataState<List<Photo>>>
+    fun getPhotos(): Pager<Int, Photo>
 }

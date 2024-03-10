@@ -12,6 +12,7 @@ import com.sisco.typicode.databinding.ActivityAdminBinding
 import com.sisco.typicode.domain.model.User
 import com.sisco.typicode.presentation.admin.detail.AdminDetailActivity
 import com.sisco.typicode.presentation.base.BaseVBActivity
+import com.sisco.typicode.presentation.login.LoginActivity
 import com.sisco.typicode.utils.parcelable
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -48,6 +49,11 @@ class AdminActivity : BaseVBActivity<ActivityAdminBinding>() {
     private fun initListener(dataAdmin: User) {
         adminAdapter.setOnItemClickCallback { user ->
             startActivity(AdminDetailActivity.newInstance(this, user, dataAdmin))
+        }
+        binding.tvLogout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            onBackPressCallback()
         }
     }
 
